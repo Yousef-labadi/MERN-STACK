@@ -47,7 +47,7 @@ const pokémon = Object.freeze([
     // const length = pokémon.filter( p => p.types[1]=="flying");
     // const pkmnIds = length.map( p => p.types[0] )
     // console.log(pkmnIds);
-    // const length = pokémon.filter( p => p.types=="normal");
-    // count=length.length;
+    // const normal = pokémon.filter( p => p.types=="normal");
+    // count=normal.length;
     // console.log(count);
     
