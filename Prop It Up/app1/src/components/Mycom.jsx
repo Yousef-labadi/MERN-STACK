@@ -11,10 +11,11 @@ class Mycom extends Component {
     }
   
     IncrementAge = () => {
-      this.setState(prevState => ({
-        age: prevState.age + 1
-      }));
+      this.setState({age: this.state.age +1});
     }
+    DicrementAge = () => {
+        this.setState({age: this.state.age -1});
+      }
   
     render() {
       return (
@@ -23,6 +24,7 @@ class Mycom extends Component {
           <p>Age: {this.state.age}</p>
           <p>Hair Color: {this.props.color}</p>
           <button onClick={this.IncrementAge} >Birthday Button for {this.props.first_name} {this.props.last_name} </button>
+          <button onClick={this.DicrementAge} >Birthday Button for {this.props.first_name} {this.props.last_name} </button>
         </div>
       );
     }
