@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import CustomInput from './CustomInput';
 
 const UserForm = (props) => {
   const [fname, setfname] = useState('');
@@ -27,6 +28,7 @@ const UserForm = (props) => {
     } else {
         setFnameError("");
     }
+    
 }
 const handlelname = (e) => {
     setlname(e.target.value);
@@ -74,6 +76,7 @@ const handleCPassword = (e) => {
   return (
     <div className="form-container">
       <form onSubmit={createUser} className="form">
+        <CustomInput label="First Name" handleInput={handleFname}></CustomInput>
         <div className="form-group">
           <label className="form-label">First Name:</label>
           <input
