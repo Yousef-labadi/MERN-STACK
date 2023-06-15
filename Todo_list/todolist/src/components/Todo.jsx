@@ -15,7 +15,7 @@ const Todo = () => {
         }
     }
 
-    const handleChange = (idx) => (event) => {
+    const handleChange = (idx) => () => {
         const updatedTasks = tasks.map((task, index) => {
             if (index === idx) {
                 return { ...task, completed: !task.completed };
@@ -36,6 +36,7 @@ const Todo = () => {
                 Add
             </button>
             <div>
+                
                 
                 <ul>
                     {tasks.map((item, idx) => (
