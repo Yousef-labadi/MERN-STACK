@@ -1,30 +1,23 @@
 import React,{useState} from 'react'
 import axios from 'axios';
 
-const Form = () => {
-    const [title,setTitle]=useState('');
-    const [price,setPrice]=useState('');
-    const [desc,setDesc]=useState('');
-    const handelSubmit=e=>{
-        e.preventDefault();
-        axios.post('http://localhost:8000/api/products',{
-        title,
-        price,
-        desc})
-            .then(res=>{console.log(res);
-              setTitle("");
-              setDesc("");
-              setPrice(0);})
-            .catch(err=>console.log(err))
-    }
-
+const Form = (props) => {
+    const [title,setTitle]=useState(props.initialTitle);
+    const [price,setPrice]=useState(props.initialPrice);
+    const [desc,setDesc]=useState(props.initialDesc);
+    
+  const handelSubmit=(e)=>{
+    e.preventDefault();
+    props.myFun({title,price,desc});
+  }
   return (
     <div>
-        <h2>Product Manager</h2>
+      {title ? <h2>Edit Form</h2>:<h2>Product Manager</h2>}
+        
         <form onSubmit={handelSubmit}>
-            <p>Title <input type='text' onChange={(e)=>setTitle(e.target.value)}></input></p>
-            <p>Price <input type='number' onChange={(e)=>setPrice(e.target.value)}></input></p>
-            <p>Description <input type='text' onChange={(e)=>setDesc(e.target.value)}></input></p>
+            <p>Title <input type='text' onChange={(e)=>setTitle(e.target.value)} value={title}></input></p>
+            <p>Price <input type='number' onChange={(e)=>setPrice(e.target.value)} value={price}></input></p>
+            <p>Description <input type='text' onChange={(e)=>setDesc(e.target.value)} value={desc}></input></p>
             <input type='submit' value="Create"></input>
         </form>
     </div>
